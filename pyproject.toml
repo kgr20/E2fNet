@@ -1,0 +1,19 @@
+[project]
+name = "e2fnet"
+version = "0.1.0"
+description = "EEG-to-fMRI synthesis"
+authors = [
+    {name = "Quan Huu Cap, Kristofer Roos"}
+]
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = [
+    "diffusers (>=0.32.1,<0.33.0)",
+    "accelerate (>=1.2.1,<1.3.0)",
+    "torchmetrics (>=1.4.0.post0,<1.5.0)"
+]
+
+
+[build-system]
+requires = ["poetry-core>=2.0.0,<3.0.0"]
+build-backend = "poetry.core.masonry.api"
