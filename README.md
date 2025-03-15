@@ -25,11 +25,18 @@ poetry install --no-root
 ### Datasets pre-processing
 See [datasets pre-processing](docs/datasets_howto.md) for download and pre-process all datasets
 
+### Training
+Modify [run_bash.sh](run_train.sh) and run
+```bash
+bash run_train.sh
+```
+**Note: The current code loads ALL training data to RAM, if you don't have enough RAM, please modify the [eeg2fmri_datasets.py](eeg2fmri_datasets.py) to load smaller chunks of data**
+
 ### Pre-trained models
-Coming soon ...
+TBD ...
 
 ### Inference
-Coming soon ...
+See [inference.ipynb](inference.ipynb) for more details. 
 
 ### Citation
 
