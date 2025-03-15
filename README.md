@@ -12,9 +12,14 @@ E2fNet is specifically designed to capture and translate meaningful features fro
 Extensive evaluations across three datasets demonstrate that E2fNet consistently outperforms existing methods, achieving state-of-the-art results in terms of the structural similarity index measure (SSIM). 
 Our findings suggest that E2fNet is a promising, cost-effective solution for enhancing neuroimaging capabilities.
 
+### Required env
+- CUDA >= 11
+- Python >= 3.10
+- Poetry >= 2.0
+  
 ### Installation
 ```bash
-poetry install
+poetry install --no-root
 ```
 
 ### Datasets pre-processing
