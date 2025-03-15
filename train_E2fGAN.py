@@ -3,7 +3,6 @@ import glob
 from pathlib import Path
 
 from PIL import Image
-import numpy as np
 from tqdm.auto import tqdm
 import torch
 from torch.utils.data import DataLoader
@@ -188,7 +187,7 @@ if __name__=="__main__":
     print(config)
 
     # get individual list
-    data_root = Path(data_cfg.data_roots[config.dataset])
+    data_root = Path(data_cfg.processed_data_roots[config.dataset])
 
     if config.dataset == "NODDI":
         data_list = [
@@ -203,8 +202,8 @@ if __name__=="__main__":
     train_list = list(set(data_list) - set(config.test_ids))
 
     # get individual data
-    idv_train = sorted(utils.get_individual_data(config.dataset, train_list))
-    idv_test = sorted(utils.get_individual_data(config.dataset, test_list))
+    idv_train = sorted(utils.get_individual_list(config.dataset, train_list))
+    idv_test = sorted(utils.get_individual_list(config.dataset, test_list))
 
     print(f"Data root: {data_root}")
     
