@@ -8,7 +8,7 @@ import torch
 from torch.utils.data import DataLoader
 import torchmetrics
 
-from diffusers.optimization import get_cosine_schedule_with_warmup
+import diffusers.optimization as optimization
 from accelerate import Accelerator
 
 from eeg2fmri_datasets import EEG2fMRIDataset
@@ -232,10 +232,11 @@ if __name__=="__main__":
     ### prepare for training
     loss_func = ssim_mse_loss(lambda_ssim=0.5, lambda_mes=0.5)
     optimizer = torch.optim.AdamW(model.parameters(), lr=config.lr)
-    lr_scheduler = get_cosine_schedule_with_warmup(
+    lr_scheduler = optimization.get_cosine_with_hard_restarts_schedule_with_warmup(
         optimizer=optimizer,
         num_warmup_steps=config.lr_warmup_steps,
         num_training_steps=(len(train_loader) * config.num_epochs),
+        num_cycles=max(1, config.num_epochs//10), # restart every 10 epochs
     )
     # initialize accelerator and logging
     accelerator = Accelerator(
