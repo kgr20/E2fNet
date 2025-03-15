@@ -50,4 +50,9 @@ CN-EPFL
 ```
 
 ## Process and create EEG-fMRI pairs
-Code coming soon ...
+Modify the raw dataset directories (`raw_data_roots`) and processed dataset directories (`processed_data_roots`) (i.e., where to save h5 files) in [data_cfg.py](../data_cfg.py).  
+An example of processing NODDI dataset is below
+```bash
+# data_name includes 'NODDI', 'Oddball', 'CNEPFL'
+python process_data.py --data_name NODDI
+```
